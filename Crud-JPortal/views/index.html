@@ -34,6 +34,50 @@
     <p>i put &quot; border:none&quot; and a CSS3 effect ( opacity ) on the image. </p>
     <p>Enjoy yourself! </p>
   </div>
+  <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Key Word</th>
+                <th>Aply</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--  call mondodbAtlas called REST/ bookschema
+                "ejs tags that allow for you to embed a Javascript expression whose evaluation (return value) will be added to the template when compiled"
+                the understanding code has been sourced from Availability: https://ejs.co/#docs . -->
+            <% partsbooks.forEach(part => { %><!--Used to output the return value of an expression into the document-->
+            <tr>
+                
+                <td> <%= part.item %> </td>
+                <td> <%= part.price %> </td>
+                <td>  <%= part.name %>  </td>
+    
+                <td>
+                    <!--   Calling my api/routes/bookarts/EDIT BACKEND via put. -->
+                
+                      <a href="/bookarts/edit/<%= part.id %>"  >
+                    <button class="btn btn-warning" style="margin-left: 5px;" type="submit"><i class="fa fa-pencil"  style="font-size: 15px;">edit
+                    </i></button>
+                </a>
+                <!--the following code  has been sourced from title: How To Build A Markdown Blog Using Node.js, Express, And MongoDB 
+                    Author: Web Dev Simplified Availability: https://www.youtube.com/watch?v=1NrHkjlWVhM-->
+                    <!--   Calling my api/routes/bookarts/DELETE BACKEND via post. -->
+                    <form action="/bookarts/<%= part.id %>?_omethod=DELETE" method="POST" class="d-inline"  >
+                    <button type="submit" class="btn btn-danger" style="margin-left: 5px;" style="font-size: 15px;">delete
+                    </button>
+                   </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+</div>
+</div>
   <script type="text/javascript">
 //Start Ajax tabs script for UL with id="maintab" Separate multiple ids each with a comma.
 startajaxtabs("maintab")
