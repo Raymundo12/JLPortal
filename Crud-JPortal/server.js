@@ -4,7 +4,7 @@ const morgan=require('morgan');
 const bodyparser=require("body-parser");
 const path = require("path");
 const { resolve } = require('dns');
-const connectDB = require('./server/routes/database/connection')
+const connectDB = require('./server/routes/database/connection');
 
 const app = express();
 
