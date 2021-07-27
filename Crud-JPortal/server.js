@@ -19,9 +19,7 @@ app.set("view engine","ejs")
 app.use('/ccc',express.static((path.resolve(__dirname,"assets/css"))))
 app.use('/js',express.static((path.resolve(__dirname,"assets/js"))))
 
-app.get('/',(req,res)=>{
-    res.render('index');
-})
+app.use('/',require('./server/routes/router'))
 
 app.listen(PORT,()=>{console.log('server is runing on http://localhost:${PORT}')});
 
