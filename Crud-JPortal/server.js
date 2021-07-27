@@ -4,7 +4,14 @@ const morgan=require('morgan');
 const bodyparser=require("body-parser");
 const path = require("path");
 const { resolve } = require('dns');
-//const connectDB = require('./server/routes/database/connection');
+const mongoose = require('mongoose')
+try {
+    useUnifiedTopology: true;
+} catch (error) {
+    
+}
+
+
 
 const app = express();
 
@@ -13,7 +20,8 @@ const PORT=process.env.PORT ||8080
 
 app.use(morgan('tiny'));
 
-//connectDB();
+mongoose.connect('mongodb+srv://RaymundoOlvera:Ray1234@cluster0.rrjgj.mongodb.net/users?retryWrites=true&w=majority',()=>console.log('Conenected to the DB'));
+
 
 app.use(bodyparser.urlencoded({extended:true}))
 
