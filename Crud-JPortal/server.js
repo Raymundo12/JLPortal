@@ -15,10 +15,8 @@ dotenv.config({path:dotenv.config.env})
 const PORT=process.env.PORT ||8080
 
 app.use(morgan('tiny'));
-//{useNewUrlParser: true, useUnifiedTopology: true })//for avoid the deprecation Warning at the terminal
-mongoose.connect('mongodb+srv://RaymundoOlvera:Ray1234@cluster0.rrjgj.mongodb.net/users?retryWrites=true&w=majority', 
-{ useUnifiedTopology: true, useNewUrlParser: true },()=>
-console.log('Conenected to the DB'));
+mongoose.connect('DB_URL', { useUnifiedTopology: true, useNewUrlParser: true },()=>
+console.log('Connected to the DB'));
 
 
 app.use(bodyparser.urlencoded({extended:true}))
