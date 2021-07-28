@@ -5,11 +5,7 @@ const bodyparser=require("body-parser");
 const path = require("path");
 const { resolve } = require('dns');
 const mongoose = require('mongoose')
-try {
-    useUnifiedTopology: true;
-} catch (error) {
-    
-}
+
 
 
 
@@ -20,7 +16,9 @@ const PORT=process.env.PORT ||8080
 
 app.use(morgan('tiny'));
 
-mongoose.connect('mongodb+srv://RaymundoOlvera:Ray1234@cluster0.rrjgj.mongodb.net/users?retryWrites=true&w=majority',()=>console.log('Conenected to the DB'));
+mongoose.connect('mongodb+srv://RaymundoOlvera:Ray1234@cluster0.rrjgj.mongodb.net/users?retryWrites=true&w=majority',
+{ useUnifiedTopology: true },()=>
+console.log('Conenected to the DB'));
 
 
 app.use(bodyparser.urlencoded({extended:true}))
