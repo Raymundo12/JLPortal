@@ -26,7 +26,7 @@ app.set("view engine","ejs")
 app.use('/ccc',express.static((path.resolve(__dirname,"assets/css"))))
 app.use('/js',express.static((path.resolve(__dirname,"assets/js"))))
 
-app.use('/',require('./server/routes/router'))
+app.use('/',require('./server/models/JobsListed'))
 
 app.listen(PORT,()=>{console.log('server is runing on http://localhost:${PORT}')});
 
