@@ -1,21 +1,21 @@
-// //dependencies modules
-// const express = require('express')
-// const Book = require('../models/books')//books is where my schema is
-// const router = express.Router()
+//dependencies modules
+const express = require('express')
+const Jobs = require('../models/jobs')//books is where my schema is
+const router = express.Router()
 // //This are APIs that node.js express server exports, learned in class 
 // //Routes and Controller for handling all CRUD = Create, Read, Update, Delete/POST/GET/PUT/DELETE
 // //this call view/bookart/new 
-// router.get('/new', (req, res) => {
-//     res.render('bookart/new', {part: new Book() })
-// })
+ router.get('/new', (req, res) => {
+ res.render('router/new', {part: new User() })
+})
 
-// router.get('/edit/:id', async (req, res) => { 
-//   const part = await Book.findById(req.params.id) 
+//router.get('/edit/:id', async (req, res) => { 
+//const part = await Book.findById(req.params.id) 
   
-//   res.render('bookart/edit', { part: part })
-// })
+//res.render('bookart/edit', { part: part })
+//})
 
-// router.get('/:id', async (req, res) => {
+//router.get('/:id', async (req, res) => {
 //   const part = await Book.findById()
 //   if (part == null) { // checking if part is null. if true sending a status code 404 and a error message.
 //  return res.status(404).json({message: 'Ops! cant find this book by id'})

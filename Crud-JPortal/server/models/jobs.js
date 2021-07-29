@@ -2,9 +2,9 @@
 var mongoose = require('mongoose');//to interact with the MongoDBatlas database called jobs 
 
 var jobSchema = new mongoose.Schema({ 
-    item: { type: String, unique: true},
-    price: { type: Number},
-    name: { type: String},
+    user: { type: String, unique: true},
+    email: { type: String, unique: true},
+    KeyWord: { type: String},
     //what variables are you going to put here?
     
 },
