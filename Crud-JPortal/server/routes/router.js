@@ -29,7 +29,7 @@ const router = express.Router()
 router.post('/', async (req, res, next) => {
 req.part = new Jobs() 
 next()
-}, saveBooktAndRedirect('new')) // calling the function to create new record
+}, savejobsAndRedirect('new')) // calling the function to create new record
 
 
 // // request UPDATE/ PUT  by id
@@ -48,23 +48,22 @@ next()
 // })
 
 // //function UPDATE/ PUT/ CREATE BOOK on my web book page and my mongo db atlas
-// function saveBooktAndRedirect(path) { 
-//   return async (req, res) => {
-//     let part = req.part
-//     part.item = req.body.item
-//     part.price = req.body.price
-//     part.name = req.body.name
+function savejobstAndRedirect(path) { 
+return async (req, res) => {
+let part = req.part
+part.user = req.body.user
+part.email = req.body.email
+part.keyWord = req.body.keyWord
     
-//     try {
-//       part = await part.save() // everything is saved to the Rest database collection
+try {
+part = await part.save() // everything is saved to the Rest database collection
 
-//      res.redirect(`/#Audiobook`)
-//     } catch (e) {
+ res.redirect(`/#Audiobook`)
+} catch (e) {
  
-//  return res.status(400).json({message: 'Ops! Validation fail for the request'}) // in case runs in a error.
+return res.status(400).json({message: 'Ops! Validation fail for the request'}) // in case runs in a error.
 //     }
 //   }
 // }
 
-
-// module.exports = router
+module.exports = router
