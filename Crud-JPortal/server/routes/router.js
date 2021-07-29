@@ -6,7 +6,7 @@ const router = express.Router()
 // //Routes and Controller for handling all CRUD = Create, Read, Update, Delete/POST/GET/PUT/DELETE
 // //this call view/bookart/new 
  router.get('/new', (req, res) => {
- res.render('router/new', {part: new User() })
+ res.render('router/new', {part: new user() })
 })
 
 //router.get('/edit/:id', async (req, res) => { 
