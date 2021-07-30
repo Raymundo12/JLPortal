@@ -5,9 +5,9 @@ const routerJ = express.Router()
 // //This are APIs that node.js express server exports, learned in class 
 // //Routes and Controller for handling all CRUD = Create, Read, Update, Delete/POST/GET/PUT/DELETE
 // //this call view/bookart/new 
- //router.get('/new', (req, res) => {
- //res.render('router/new', {part: new Jobs() })
-//})
+routerJ.get('/new', (req, res) => {
+res.render('router/new', {part: new Jobs() })
+})
 
 //router.get('/edit/:id', async (req, res) => { 
 //const part = await Book.findById(req.params.id) 
