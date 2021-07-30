@@ -4,8 +4,8 @@ const morgan=require('morgan');
 const bodyparser=require("body-parser");
 const path = require("path");
 const { resolve } = require('dns');
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose');
+const job = require('./server/models/jobs');
 
 
 
