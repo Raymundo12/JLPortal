@@ -1,7 +1,7 @@
 //dependencies modules
 const express = require('express')
 const Jobs = require('../models/jobs')//books is where my schema is
-const router = express.Router()
+const routerJ = express.Router()
 // //This are APIs that node.js express server exports, learned in class 
 // //Routes and Controller for handling all CRUD = Create, Read, Update, Delete/POST/GET/PUT/DELETE
 // //this call view/bookart/new 
@@ -26,7 +26,7 @@ const router = express.Router()
 
 // // CREATE AND SAVE BOOK.
 
-router.post('/', async (req, res, next) => {
+routerJ.post('/', async (req, res, next) => {
 req.part = new Jobs() 
 next()
 }, savejobsAndRedirect('new')) // calling the function to create new record
@@ -58,12 +58,12 @@ part.keyWord = req.body.keyWord
 try {
 part = await part.save() // everything is saved to the Rest database collection
 
- res.redirect(`/#Audiobook`)
+ res.redirect(`/#Jobs`)
 } catch (e) {
  
 return res.status(400).json({message: 'Ops! Validation fail for the request'}) // in case runs in a error.
-//     }
-//   }
-// }
+    }
+   }
+ }
 
-module.exports = router
+module.exports = routerJ
