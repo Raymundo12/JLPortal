@@ -5,8 +5,8 @@ const bodyparser=require("body-parser");
 const path = require("path");
 const { resolve } = require('dns');
 const mongoose = require('mongoose');
-const job = require('./server/models/jobs');
-
+const job = require('./server/models/user');
+const Alienrouter = require('./server/routes/JobsListed');
 
 
 const app = express();
@@ -23,10 +23,12 @@ app.use(bodyparser.urlencoded({extended:true}))
 
 app.set("view engine","ejs")
 
+app.use('/jobsListed', Alienrouter)
+
 app.use('/ccc',express.static((path.resolve(__dirname,"assets/css"))))
 app.use('/js',express.static((path.resolve(__dirname,"assets/js"))))
 
-app.use('/',require('./server/models/JobsListed'))
+app.use('/',require('./server/routes/JobsListed'))
 
 app.listen(PORT,()=>{console.log('server is runing on http://localhost:${PORT}')});
 

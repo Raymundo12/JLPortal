@@ -11,4 +11,4 @@ var jobSchema = new mongoose.Schema({
 { timestamps: true }
 );
 
-module.exports = mongoose.model('jobs', jobSchema);//important 'jobs creates a table inside mongo atlas and push my bookSchema retrieved);
+module.exports = mongoose.model('user', jobSchema);//important 'jobs creates a table inside mongo atlas and push my bookSchema retrieved);
