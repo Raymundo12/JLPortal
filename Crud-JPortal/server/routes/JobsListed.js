@@ -5,37 +5,37 @@ const users = require('../models/user')
 
 route.get('/', async (req, res) =>{
    try {
-       const JobsListed = await user.find()
+       const JobsListed = await users.find()
    } catch (err) {
        res.send('Error ' + err)
    }
 
 })
 
-//route.get('/', async(req,res)=>{
-    //try {
-      //  const JobsPosted = await Jobs.find()
-        //res.json(JobsListed)          
-    //} catch (err) {
-      //    res.send('Error ' + err)         
-    //}
-//})
+route.get('/', async(req,res)=>{
+    try {
+        const JobsPosted = await users.find()
+        /es.json(JobsListed)          
+    } catch (err) {
+     res.send('Error ' + err)         
+    }
+})
 
 
-//route.post('/',async(req,res)=>{
-    //const jobs = new query ({
-           //name: req.body.name,
-          // email: req.body.email,
-           //KeyWord: req.body.KeyWord
-   // })
-   // try {
-        //const a1 = await jobs.save()
-        //res.json(a1)
-    //} catch (err) {
-       // res.send('error' + err)
-    //}
-    //res.render('add-user');
-//})
+route.post('/',async(req,res)=>{
+    const user = new users ({
+           name: req.body.name,
+           email: req.body.email,
+           KeyWord: req.body.KeyWord
+    })
+   try {
+        const a1 = await user.save()
+        res.json(a1)
+    } catch (err) {
+        res.send('error' + err)
+    }
+    res.render('');
+})
 
 //route.get('/update-user',(req,res)=>{
   //  res.render('add-user');
