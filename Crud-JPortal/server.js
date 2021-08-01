@@ -15,7 +15,7 @@ dotenv.config({path:dotenv.config.env})
 const PORT=process.env.PORT ||8080
 
 app.use(morgan('tiny'));
-mongoose.connect('DB_URL', { useUnifiedTopology: true, useNewUrlParser: true },()=>
+mongoose.connect('DB_URL', { useUnifiedTopology: true, useNewUrlParser: true, },()=>
 console.log('Connected to the DB'));
 
 
